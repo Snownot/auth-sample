@@ -7,8 +7,15 @@
 # BlueJ files
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# JetBrains files #
+.idea/
+
+# Js files #
+node_modules/
+yarn.lock
+
+# Java files #
+target/
 
 # Package Files #
 *.jar
@@ -19,5 +26,3 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
