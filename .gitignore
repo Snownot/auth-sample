@@ -13,6 +13,7 @@
 # Js files #
 node_modules/
 yarn.lock
+package-lock.json
 
 # Java files #
 target/
