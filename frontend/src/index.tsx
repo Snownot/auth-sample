@@ -8,9 +8,8 @@ import reportWebVitals from './reportWebVitals';
 //const theme: ThemeOptions = MuiPropsCollection.getStyle()
 
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement!);
-
+const root = createRoot(document.getElementById("root") as Element);
 root.render(<App/>);
+
 
 reportWebVitals();
