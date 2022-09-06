@@ -1,6 +1,6 @@
 window.$Env = {
     URL: '',
-    path: '',
+    path: '/',
     serverPath: ''
 }
 

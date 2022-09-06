@@ -1,7 +1,12 @@
 import React from 'react';
+import {observer} from "mobx-react";
+import RouterConfiguration from "./route/RouterConfiguration";
 
-export default class App extends React.Component {
-  public render() {
-    return <div>Hello</div>;
-  }
+class App extends React.Component {
+
+    public render() {
+        return <RouterConfiguration />;
+    }
 }
+
+export default observer(App);
