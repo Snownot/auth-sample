@@ -4,7 +4,7 @@ class Utils {
 
     getRoute = (path: string): any => {
         return {
-            path: '/login',
+            path: path,
             exact: true,
             name: 'Login',
             title: 'Login',

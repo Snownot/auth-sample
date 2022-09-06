@@ -1,6 +1,6 @@
 import React from "react";
 
-class AppLayout extends React.Component<any, any> {
+class AppLayout extends React.Component {
 
     render() {
         console.log("hello")
