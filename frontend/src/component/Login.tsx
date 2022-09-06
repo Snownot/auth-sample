@@ -11,12 +11,17 @@ class Login extends React.Component<IProps>{
 
     onInputUserName = (event:BaseSyntheticEvent) => {
         const e = event?.nativeEvent as InputEvent;
-        this.props.authenticationStore.changeUserName(e.data!);
+        if (e.data !== null) {
+            this.props.authenticationStore.changeUserName(e.data);
+        }
+
     }
 
     onInputPassword = (event:BaseSyntheticEvent) => {
         const e = event?.nativeEvent as InputEvent;
-        this.props.authenticationStore.changeUserPassword(e.data!);
+        if (e.data !== null) {
+            this.props.authenticationStore.changeUserName(e.data);
+        }
     }
 
     render() {
