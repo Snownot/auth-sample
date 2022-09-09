@@ -17,12 +17,15 @@ class AuthenticationStore {
     }
 
     changeUserName = (deltaName:string) => {
+
         this.user.username = this.user.username + deltaName
     }
 
     changeUserPassword= (deltaPassword:string) => {
         this.user.password = this.user.password + deltaPassword
     }
+
+
 }
 
 export default AuthenticationStore;
