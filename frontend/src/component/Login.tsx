@@ -21,17 +21,22 @@ class Login extends React.Component<IProps>{
     onInputPassword = (event:BaseSyntheticEvent) => {
         const e = event?.nativeEvent as InputEvent;
         if (e.data !== null) {
-            this.props.authenticationStore.changeUserName(e.data);
+            this.props.authenticationStore.changeUserPassword(e.data);
         }
+    }
+
+    submitLogin =() => {
+        this.props.authenticationStore.submitLogin();
     }
 
     render() {
         return <div>
             <input onInput={this.onInputUserName}/>
             <input onInput={this.onInputPassword}/>
-            <div>{this.props.authenticationStore.user.username}</div>
-            <div>{this.props.authenticationStore.user.password}</div>
-            <button>Login</button>
+            <div className={"text-block"}>{this.props.authenticationStore.user.username}</div>
+            <div className={"text-block"}>{this.props.authenticationStore.user.password}</div>
+            <div>{this.props.authenticationStore.result!.toString()}</div>
+            <button onClick={this.submitLogin}>Login</button>
         </div>;
     }
 }

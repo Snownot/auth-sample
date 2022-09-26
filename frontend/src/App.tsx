@@ -1,5 +1,5 @@
 import React from "react";
-import {observer} from "mobx-react";
+import "./index.css";
 import RouterConfiguration from "./route/RouterConfiguration";
 
 class App extends React.Component {
@@ -9,4 +9,4 @@ class App extends React.Component {
     }
 }
 
-export default observer(App);
+export default App;

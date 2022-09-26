@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "latest",
     "eslint": "7.11.0",
     "mobx": "^6.6.1",
     "mobx-react": "^7.5.2",

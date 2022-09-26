@@ -8,6 +8,7 @@ export type AppRouter = {
      */
     exact: boolean,
     title: string,
+    isLayout: boolean,
     component: any
 }
 
@@ -19,6 +20,7 @@ class Utils {
             name: 'Home',
             exact: true,
             title: 'Home',
+            isLayout: true,
             component: LoadableComponent(() => import('../component/AppLayout')),
         },
         {
@@ -26,6 +28,7 @@ class Utils {
             exact: true,
             name: 'Login',
             title: 'Login',
+            isLayout: false,
             component: LoadableComponent(() => import('../component/Login')),
         },
 
