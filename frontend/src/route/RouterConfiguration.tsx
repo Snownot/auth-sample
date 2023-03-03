@@ -15,7 +15,7 @@ const RouterConfiguration = (): JSX.Element => {
     return (<Suspense fallback={<Loading/>}>
             <Switch>
                 <Route path="/login" exact render={(props: any) => <Login {...props} />}/>
-                <ProtectedRoute path="/" exact render={(props: any) => <AppLayout {...props} />}/>
+                <ProtectedRoute path="*" exact render={(props: any) => <AppLayout {...props} />}/>
             </Switch>
         </Suspense>
     );
