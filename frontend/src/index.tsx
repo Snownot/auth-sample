@@ -1,22 +1,33 @@
-import React from "react";
-import {createRoot} from "react-dom/client";
+import React from 'react';
+import './index.css';
 import App from './App';
-import initializeStores from "./store/storeInitializer";
-import {createBrowserHistory} from "history";
-import {Router} from "react-router-dom";
-import reportWebVitals from './reportWebVitals';
-import {Provider} from "mobx-react";
+import {Provider} from 'mobx-react';
+import {createRoot} from "react-dom/client";
+import {Router} from 'react-router';
+import {createBrowserHistory} from 'history';
+import {RouterStore, syncHistoryWithStore} from 'mobx-react-router';
+import reportWebVitals from "./reportWebVitals";
+import initializeStores from "./store/configuration/storeInitializer";
 
-const stores = initializeStores();
-const history = createBrowserHistory({basename: ((window as any).$Env as any).path}!);
-const root = createRoot(document.getElementById("root") as Element);
+const routingStore = new RouterStore();
+const rootElement = document.getElementById("root");
 
-root.render(
-    <Provider {...stores}>
-        <Router history={history}>
-            <App/>
-        </Router>
-    </Provider>
-);
+if (rootElement !== null) {
+    const root = createRoot(rootElement);
+    const browserHistory = createBrowserHistory({basename: process.env.PUBLIC_URL});
+    const stores = {
+        routing: routingStore,
+        ...initializeStores()
+    };
+    const history = syncHistoryWithStore(browserHistory, stores.routing);
+
+    root.render(
+        <Provider {...stores}>
+            <Router history={history}>
+                <App/>
+            </Router>
+        </Provider>
+    );
+}
 
 reportWebVitals();

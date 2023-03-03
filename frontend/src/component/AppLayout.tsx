@@ -1,26 +1,40 @@
-import React from "react";
-import {Route, RouteComponentProps, Switch} from "react-router-dom";
-import {observer} from "mobx-react";
+import React, {Suspense} from "react";
+import {Switch, Redirect} from "react-router-dom";
+import {inject, observer} from "mobx-react";
 import Utils, {AppRouter} from "../utils/utils";
 import ProtectedRoute from "../route/ProtectedRoute";
+import InjectNames from "../store/configuration/storeIdentifier";
+import * as H from "history";
+import Loading from "../loading";
+import {Route} from "react-router";
 
-class AppLayout extends React.Component<RouteComponentProps> {
+interface IProps {
+    routing?: H.History;
+}
 
-    render() {
+class AppLayout extends React.Component<IProps> {
+
+    render(): JSX.Element {
+        console.log("AppLayout render")
         return <div>
-            Hello
-            <Switch>
-                {Utils.appRouters
-                    .filter((route: AppRouter) => !route.isLayout)
-                    .map((route: AppRouter, index: number) => <Route
-                        exact
-                        key={index}
-                        path={route.path}
-                        render={() => <ProtectedRoute component={route.component}/>}
-                    />)}
-            </Switch>
+            <Suspense fallback={<Loading/>}>
+                {(
+                    <Switch>
+                        {this.props.routing!.location.pathname === '/' && <Redirect from="/" to={"/login"}/>}
+                        {Utils.appRouters
+                            .map((route: AppRouter, index: number) => <Route
+                                key={index}
+                                path={route.path}
+                                exact={route.exact}
+                                render={(): JSX.Element => <ProtectedRoute component={route.component}/>}
+                            />)}
+                    </Switch>
+                )}
+            </Suspense>
         </div>;
     }
 }
 
-export default observer(AppLayout)
+export default inject(
+    InjectNames.RoutingStore
+)(observer(AppLayout));

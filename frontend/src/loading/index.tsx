@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-const Loading = () => (
-   <div>loading</div>
-);
+const Loading = () => {
+    console.log("loading.................")
+    return (<b>Loading</b>);
+}
 
 export default Loading;

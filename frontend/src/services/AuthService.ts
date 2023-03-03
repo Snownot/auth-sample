@@ -1,4 +1,4 @@
-import {UserPrincipal} from "../model/UserPrincipal";
+import {UserPrincipal} from "../domain/model/UserPrincipal";
 import axios from "axios";
 
 class AuthService {

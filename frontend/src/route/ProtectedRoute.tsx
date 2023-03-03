@@ -2,7 +2,13 @@ import * as React from 'react';
 
 import {Route} from 'react-router-dom';
 
-const ProtectedRoute = ({ path, component: Component, render, ...rest }: any) => {
+const ProtectedRoute = ({
+                            path,
+                            component: Component,
+                            render,
+                            ...rest
+                        }:
+                            any) => {
 
     return (
         <Route

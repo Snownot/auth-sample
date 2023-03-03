@@ -4,8 +4,8 @@ import RouterConfiguration from "./route/RouterConfiguration";
 
 class App extends React.Component {
 
-    public render() {
-        return <RouterConfiguration />;
+    render (): JSX.Element {
+        return <RouterConfiguration/>;
     }
 }
 

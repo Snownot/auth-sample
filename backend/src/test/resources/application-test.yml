@@ -1,8 +1,0 @@
-server:
-  port: ${SERVER_PORT:8083}
-
-logging:
-  file:
-    name: logs/log.log
-  level:
-    root: info
