@@ -1,23 +1,24 @@
 import * as React from 'react';
+import {inject} from "mobx-react";
+import InjectNames from "../store/configuration/storeIdentifier";
+import {Route, Redirect} from "react-router";
 
-import {Route} from 'react-router-dom';
-
-const ProtectedRoute = ({
-                            path,
-                            component: Component,
-                            render,
-                            ...rest
-                        }:
-                            any) => {
+const ProtectedRoute = ({component: Component, authenticationStore, render, ...rest}: any) => {
 
     return (
         <Route
             {...rest}
             render={props => {
+                console.log(render)
+                if (!authenticationStore!.user.isAuthenticated)
+                    return (
+                        <Redirect to={{pathname: '/login'}}/>
+                    );
                 return Component ? <Component {...props} /> : render(props);
             }}
         />
     );
 };
-
-export default ProtectedRoute;
+export default inject(
+    InjectNames.AuthenticationStore
+)(ProtectedRoute);

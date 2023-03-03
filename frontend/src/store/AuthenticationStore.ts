@@ -5,7 +5,8 @@ class AuthenticationStore {
 
     user: UserPrincipal = {
         username: "",
-        password: ""
+        password: "",
+        isAuthenticated: true
     }
 
     constructor() {

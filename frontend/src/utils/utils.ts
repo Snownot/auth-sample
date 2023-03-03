@@ -25,6 +25,12 @@ class Utils {
             exact: true,
             component: React.lazy(() => import('../component/Login')),
         },
+        {
+            path: '/home',
+            title: 'Home',
+            exact: true,
+            component: React.lazy(() => import('../component/Home')),
+        },
 
     ];
 

@@ -1,4 +1,5 @@
 export type UserPrincipal = {
     username: string,
-    password: string
+    password: string,
+    isAuthenticated: boolean
 }
